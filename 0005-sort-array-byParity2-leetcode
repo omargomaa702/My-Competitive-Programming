@@ -1,0 +1,18 @@
+class Solution {
+    void swap(int &x,int &y){
+        int temp=x;
+        x=y;
+        y=temp;
+    }
+public:
+    vector<int> sortArrayByParityII(vector<int>& nums) {
+        int i=0,j=1;
+        int n=nums.size();
+        while(i<n&&j<n){
+            if((nums[i]&1)==0)i+=2;
+            else if((nums[j]&1)==1)j+=2;
+            else swap(nums[i],nums[j]);
+        }
+        return nums;
+    }
+};
